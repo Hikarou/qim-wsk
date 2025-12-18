@@ -1,1 +1,0 @@
-export { LogoComponent as QuiLogo } from '@dev/qui';

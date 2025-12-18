@@ -1,4 +1,5 @@
-import { Component, computed, input, signal } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+import { UILevel } from '../../types';
 
 /**
  * A reusable button component with customizable levels.
@@ -16,6 +17,6 @@ import { Component, computed, input, signal } from '@angular/core';
 })
 export class Button {
   // TODO : Centraliser les Types
-  level = input<'primary' | 'success' | 'warning' | 'secondary' | 'danger'>('primary');
+  level = input<UILevel>('primary');
   css = computed(() =>  'btn-' + this.level());
 }

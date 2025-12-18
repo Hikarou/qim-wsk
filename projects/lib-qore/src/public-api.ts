@@ -1,5 +1,38 @@
 /*
- * Public API Surface of lib-qore
+ * Public API Surface of lib-qui
  */
 
-export * from './lib/lib-qore';
+/**
+ * Types
+ */
+
+
+/**
+ * Presentation Components
+ */
+
+/**
+ * Directives
+ */
+
+
+/**
+ * Pipes
+ */
+
+/**
+ * Servcices
+ */
+
+/**
+ * Tokens ( Jeton d'injection DI)
+ */
+
+
+/**
+ * Modules
+ */
+
+/**
+ * Utils
+ */
