@@ -1,0 +1,9 @@
+header{
+    cursor: pointer;
+    height: 100px;
+    transition: height 0.6s ease;
+}
+
+header:hover {
+    height: 120px;
+}

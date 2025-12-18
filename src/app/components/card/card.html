@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;">
+  <img 
+        class="card-img-top" 
+        alt="illustrative image"
+        [src]="imageUrl()" />
+  <div class="card-body">
+
+    <h5 class="card-title">{{title()}}</h5>
+    <p class="card-text">{{description()}}</p>
+
+    <ng-content>
+        <em>No available actions</em>
+    </ng-content>
+
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<h1>Add Product:</h1>
+
+<h2 class="text-info">{{ feedback() }}</h2>
+
+<form [formGroup]="product" 
+      (ngSubmit)="send()" 
+      class="d-flex flex-column gap-2">
+      
+    <!-- input[placeholder].form-control*4 -->
+    <input type="text" 
+            placeholder="Title" 
+            class="form-control" 
+            formControlName="title">
+
+    <textarea placeholder="Description" 
+            class="form-control"
+            formControlName="description"></textarea>
+
+    <input type="number" 
+            placeholder="Price" 
+            class="form-control" 
+            formControlName="price">
+
+    <input type="text" 
+            placeholder="Thumbnail" 
+            class="form-control" 
+            formControlName="thumbnail">
+
+    @if(product.valid){
+        <p>&nbsp;</p>
+        <button type="submit" class="btn btn-success">Submit</button>
+    }
+    @else {
+        <p class="text-info">Please fill all the fields correctly.</p>
+        <button type="button" class="btn btn-secondary" disabled>Submit</button>
+    }
+
+</form>

@@ -1,5 +1,14 @@
 # QimWsk
 
+# Extension Navigateur
+* Angular DevTools - https://angular.dev/tools/devtools
+
+# Extension VS Code for Angular Workshop
+* Angular Essentials (Angular Language Service)
+* Thunder Client
+* Indent Rainbow
+* Bootstrap IntelliSense
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.13.
 
 ## Development server
