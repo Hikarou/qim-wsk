@@ -18,7 +18,7 @@ export type ShortText = string;
 */
 export type ImageUrl = `${'https://' | 'http://'}${string}/${string}.png`;
  
- /**
+/**
 * @description Liste des catégories de produits.
 */
 export type Category = "beauty" | "fragrances" | "groceries" | "furniture";
