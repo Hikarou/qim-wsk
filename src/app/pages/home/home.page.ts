@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Button } from "../../components/button/button";
 import { Router } from '@angular/router';
+import { QuiModule } from '../../bridges/qui-module';
 
 @Component({
   selector: 'app-home',
-  imports: [Button],
+  imports: [Button, QuiModule ],
   templateUrl: './home.page.html',
   styleUrl: './home.page.scss',
 })

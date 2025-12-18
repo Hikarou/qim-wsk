@@ -1,15 +1,13 @@
-import { Component, Inject, inject } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
-import { Header } from "./components/header/header";
-import { Footer } from "./components/footer/footer";
-import { Main } from "./components/main/main";
-import { Navigation } from "./components/navigation/navigation";
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { QuiModule } from './bridges/qui-module';
+import { Navigation } from './components/navigation/navigation';
 
 console.log('Defining App component...');
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, Main, Navigation],
+  imports: [RouterOutlet, Navigation ,QuiModule],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

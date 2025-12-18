@@ -9,12 +9,13 @@ import { Component, computed, input, signal } from '@angular/core';
  * <app-button level="success">Click Here</app-button>
  */
 @Component({
-  selector: 'app-button',
+  selector: 'qui-button',
   imports: [],
   templateUrl: './button.html',
   styleUrl: './button.scss',
 })
 export class Button {
+  // TODO : Centraliser les Types
   level = input<'primary' | 'success' | 'warning' | 'secondary' | 'danger'>('primary');
   css = computed(() =>  'btn-' + this.level());
 }

@@ -1,11 +1,10 @@
 import { Component, computed, inject } from '@angular/core';
-import { CardItem, Card } from '../../components/card/card';
-import { Button } from "../../components/button/button";
 import { ProductService } from '../../core/services/product.service';
+import { QuiModule , CardItem} from '../../bridges/qui-module';
 
 @Component({
   selector: 'app-product',
-  imports: [Card, Button],
+  imports: [QuiModule],
   templateUrl: './product.page.html',
   styleUrl: './product.page.scss',
 })

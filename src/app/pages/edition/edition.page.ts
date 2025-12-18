@@ -19,19 +19,24 @@ export class EditionPage {
     description: new FormControl('', [Validators.required, Validators.minLength(10)]),
     price: new FormControl(0, [Validators.required, Validators.min(0)]),
     thumbnail: new FormControl('', [Validators.required])
-  });
+  });  
 
   feedback = signal('') ;
 
-  send() {
+  /**
+   * Invoque la demande de création d'un nouveau produit.
+   */
+  public send():void {
     console.log(this.product.value);
 
+    // TODO improve form validation feedback
     if(this.product.invalid) return this.feedback.set('Formulaire invalide !');
 
     this.productService.create(
       this.product.value as Pick<ProductDTO, "title" | "description" | "price" | "thumbnail">
     );
 
+    // TODO improve feedback management
     this.feedback.set('Produit créé avec succès !');
     this.product.reset();
   }

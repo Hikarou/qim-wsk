@@ -30,6 +30,7 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss"
             ]
           },
@@ -89,6 +90,76 @@
             ],
             "styles": [
               "src/styles.scss"
+            ]
+          }
+        }
+      }
+    },
+    "lib-qui": {
+      "projectType": "library",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/lib-qui",
+      "sourceRoot": "projects/lib-qui/src",
+      "prefix": "qui",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lib-qui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lib-qui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/lib-qui/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "lib-qore": {
+      "projectType": "library",
+            "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/lib-qore",
+      "sourceRoot": "projects/lib-qore/src",
+      "prefix": "qore",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:ng-packagr",
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lib-qore/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/lib-qore/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular/build:karma",
+          "options": {
+            "tsConfig": "projects/lib-qore/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
             ]
           }
         }

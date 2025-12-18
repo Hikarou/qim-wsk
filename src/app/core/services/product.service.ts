@@ -12,6 +12,7 @@ export class ProductService {
   private data = signal<ProductDTO[]>([]);
   public products = computed(() => this.data());
   
+  // TODO add error handling and feedback.
   readAll() {
     this.http.get<ProductDTO[]>('http://localhost:5050/products')
     .subscribe((products) => this.data.set(products));

@@ -6,6 +6,20 @@
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
+    "paths": {
+      "@qim/qore": [
+        "./dist/lib-qore"
+      ],
+      "@qim/qui": [
+        "./dist/lib-qui"
+      ],
+      "@dev/qore": [
+        "./projects/lib-qore/src/public-api.ts"
+      ],
+      "@dev/qui": [
+        "./projects/lib-qui/src/public-api.ts"
+      ]
+    },
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
@@ -29,6 +43,18 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/lib-qui/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/lib-qui/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/lib-qore/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/lib-qore/tsconfig.spec.json"
     }
   ]
 }
