@@ -12,7 +12,6 @@ export * from './patterns/reactive-service.pattern';
 /**
  * Services
  */
-
 export * from './abstracts/crud.service';
 
 /**
