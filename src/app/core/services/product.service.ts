@@ -1,5 +1,5 @@
-import { HttpClient } from '@angular/common/http';
-import { computed, inject, Injectable, signal } from '@angular/core';
+
+import { Injectable } from '@angular/core';
 import { ProductDTO } from '../dto/product.dto';
 import { Qore } from '../../bridges/qore';
 

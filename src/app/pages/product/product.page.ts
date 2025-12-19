@@ -1,11 +1,13 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ProductService } from '../../core/services/product.service';
-import { QuiModule , CardItem} from '../../bridges/qui-module';
+import { QuiModule } from '../../bridges/qui-module';
 import { ProductDTO } from '../../core/dto/product.dto';
+import { ToCardItemPipe } from './to-card-item-pipe';
+import { JsonPipe, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'app-product',
-  imports: [QuiModule],
+  imports: [QuiModule, ToCardItemPipe, NgTemplateOutlet, JsonPipe],
   templateUrl: './product.page.html',
   styleUrl: './product.page.scss',
 })
@@ -15,6 +17,7 @@ export class ProductPage {
 
   async ngOnInit(){
     const response = await this.productService.read();
+    
     if(response.status === 'success') {
       this.products.set( response.payload as ProductDTO[]);
     }
@@ -22,16 +25,5 @@ export class ProductPage {
   }
  
   products = signal<ProductDTO[]>([])
-
-  items = computed<CardItem[]>(
-    () => this.products()
-    .map((p) => ({
-      id: p.id,
-      title: p.title as CardItem['title'],
-      description: p.description,
-      url: p.thumbnail as CardItem['url'],
-    }))
-
-  );
 
 }

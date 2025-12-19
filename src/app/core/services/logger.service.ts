@@ -7,7 +7,11 @@ import { Qore } from "../../bridges/qore";
 export class LoggerService implements Qore.Logger {
     
     log(message: string): void {
+
+        console.groupCollapsed();
         console.log(`%cLOG: ${message}`, 'color: green; font-weight: bold;');
+        console.groupEnd();
+        
     }
 
 }
