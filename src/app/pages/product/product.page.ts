@@ -1,9 +1,8 @@
-import { Component, inject, signal } from '@angular/core';
-import { ProductService } from '../../core/services/product.service';
+import { Component, inject } from '@angular/core';
 import { QuiModule } from '../../bridges/qui-module';
-import { ProductDTO } from '../../core/dto/product.dto';
 import { ToCardItemPipe } from './to-card-item-pipe';
 import { JsonPipe, NgTemplateOutlet } from '@angular/common';
+import { ProductFacade } from './product.facade';
 
 @Component({
   selector: 'app-product',
@@ -13,17 +12,10 @@ import { JsonPipe, NgTemplateOutlet } from '@angular/common';
 })
 export class ProductPage {
 
-  productService = inject(ProductService);
+  productFacade = inject(ProductFacade);
 
-  async ngOnInit(){
-    const response = await this.productService.read();
-    
-    if(response.status === 'success') {
-      this.products.set( response.payload as ProductDTO[]);
-    }
-    
+  ngOnInit(){
+    this.productFacade.load();
   }
  
-  products = signal<ProductDTO[]>([])
-
 }

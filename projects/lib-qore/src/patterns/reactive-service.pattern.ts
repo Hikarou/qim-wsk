@@ -20,5 +20,5 @@ export interface ReactiveService<DataType, MutationType extends Mutation> {
 
     data:Signal<DataType>;
 
-    compute( mutation:MutationType ):void;
+    compute( mutation:MutationType ):void | Promise<void>;
 }

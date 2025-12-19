@@ -8,6 +8,7 @@
 export * from './types/generics';
 export * from './patterns/crud-consumer.pattern';
 export * from './patterns/reactive-service.pattern';
+export type {Mutation} from './patterns/reactive-service.pattern';
 
 /**
  * Services
