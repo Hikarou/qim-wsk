@@ -1,6 +1,7 @@
-import { Component, computed, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { ProductService } from '../../core/services/product.service';
 import { QuiModule , CardItem} from '../../bridges/qui-module';
+import { ProductDTO } from '../../core/dto/product.dto';
 
 @Component({
   selector: 'app-product',
@@ -12,21 +13,18 @@ export class ProductPage {
 
   productService = inject(ProductService);
 
-  constructor() {
-    console.log('ProductPage Instantiated');
+  async ngOnInit(){
+    const response = await this.productService.read();
+    if(response.status === 'success') {
+      this.products.set( response.payload as ProductDTO[]);
+    }
+    
   }
-
-  ngOnInit(){
-    console.log('ProductPage Initialized in DOM');
-    this.productService.readAll();
-  }
-
-  ngOnDestroy(){
-    console.log('ProductPage Destroyed from DOM');
-  }
+ 
+  products = signal<ProductDTO[]>([])
 
   items = computed<CardItem[]>(
-    () => this.productService.products()
+    () => this.products()
     .map((p) => ({
       id: p.id,
       title: p.title as CardItem['title'],

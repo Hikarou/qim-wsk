@@ -1,36 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { ProductDTO } from '../dto/product.dto';
+import { Qore } from '../../bridges/qore';
+
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductService {
-
-  private http = inject(HttpClient);
-
-  private data = signal<ProductDTO[]>([]);
-  public products = computed(() => this.data());
+export class ProductService extends Qore.CrudService<ProductDTO> {
+  override endpoint:Qore.Url =  `http://localhost:5050/products`;
   
-  // TODO add error handling and feedback.
-  readAll() {
-    this.http.get<ProductDTO[]>('http://localhost:5050/products')
-    .subscribe((products) => this.data.set(products));
-  }
-
-  readOne(id: string) {
-    this.http.get<ProductDTO>(`http://localhost:5050/products/${id}`)
-    .subscribe((product) => this.data.set([product]));
-  }
-
-  create(product: Pick<ProductDTO, 'title' | 'description' | 'price' | 'thumbnail'>) {
-    this.http.post<ProductDTO>('http://localhost:5050/products', product)
-    .subscribe((newProduct) => this.data.update((products) => [...products, newProduct]));
-  }
-
-  delete(id: string) {
-    this.http.delete<ProductDTO>(`http://localhost:5050/products/${id}`)
-    .subscribe(() => this.data.update((products) => products.filter((p) => p.id !== id)));
-  }
   
 }

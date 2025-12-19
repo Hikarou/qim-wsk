@@ -33,7 +33,7 @@ export class EditionPage {
     if(this.product.invalid) return this.feedback.set('Formulaire invalide !');
 
     this.productService.create(
-      this.product.value as Pick<ProductDTO, "title" | "description" | "price" | "thumbnail">
+      this.product.value as ProductDTO
     );
 
     // TODO improve feedback management
